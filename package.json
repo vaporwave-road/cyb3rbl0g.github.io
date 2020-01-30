@@ -1,6 +1,6 @@
 {
-  "name": "cyb3rbl0g",
-  "title": "Cyb3rbl0g",
+  "name": "clean-blog",
+  "title": "Clean Blog",
   "version": "3.3.7+1",
   "homepage": "http://startbootstrap.com/template-overviews/clean-blog",
   "author": "Start Bootstrap",
@@ -18,7 +18,7 @@
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.4",
-    "jquery": "^3.4.1"
+    "jquery": "^1.11.3"
   },
   "repository": {
     "type": "git",

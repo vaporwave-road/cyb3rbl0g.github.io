@@ -46,7 +46,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">(´• ω •) 🎄</a>
+                <a class="navbar-brand" href="index.html">(´• ω •)</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,8 +79,8 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>Mr-Robot: 1</h1>
-                        <h2 class="subheading">Difficulty : easy</h2>
-                        <span class="meta">Posted by <a href="#">Admin</a> on December 3, 2019</span>
+                        <h2 class="subheading">Difficulty: easy</h2>
+                        <span class="meta">Posted by <a href="about.html">Admin</a> on December 3, 2019</span>
                     </div>
                 </div>
             </div>
@@ -95,13 +95,13 @@
                     <p><a href="https://www.vulnhub.com/entry/mr-robot-1,151/">CTF link</a></p>
 					<h2 class="section-heading">Explor1ng</h2>
 
-                    <p>Good day, today I walkthrough CTF dedicated to my favorite TV series "Mr Robot". I will use the netdiscover utility to determine the desired ip address</p>
+                    <p>Good day, today I walkthrough CTF dedicated to my favorite TV series "Mr Robot". I will use the netdiscover utility to determine the desired ip address.</p>
 					
 					<a href="img/post3/image1.png">
                         <img class="img-responsive" src="img/post3/image1.png" alt="">
                     </a>
 
-                    <blockquote>netdiscover</blockquote>
+                    <pre><code>netdiscover</code></pre>
 
                     <p>Scanning open ports, you can see the closed ssh port and two web ports https 443 and http 80.</p>
 					
@@ -109,13 +109,13 @@
                         <img class="img-responsive" src="img/post3/image2.png" alt="">
                     </a>
 					
-					<p>On port 80, I see something like a UNIX terminal, but it's just script</p>
+					<p>On port 80, I see something like a UNIX terminal, but it's just script.</p>
 					
 					<a href="img/post3/image3.png">
                         <img class="img-responsive" src="img/post3/image3.png" alt="">
                     </a>
 					
-					<p>In the robots.txt file I find two interesting files, the first one is a wordlist and second is the first flag</p>
+					<p>In the robots.txt file I find two interesting files, the first one is a wordlist and second is the first flag.</p>
 					
 					<a href="img/post3/image4.png">
                         <img class="img-responsive" src="img/post3/image4.png" alt="">
@@ -127,21 +127,21 @@
 					
 					<h2 class="section-heading">Shell</h2>
 					
-					<p>Using dirbuster utility i find wordpress blog and login page</p>
+					<p>Using dirbuster utility i find wordpress blog and login page.</p>
 					
 					<a href="img/post3/image6.png">
                         <img class="img-responsive" src="img/post3/image6.png" alt="">
                     </a>
 					
-					<p>Since the main character is called elliot we can assume that it will be username. Using the earlier received wordlist and WPScan I will find out credentials for WordPress</p>
+					<p>Since the main character is called elliot we can assume that it will be username. Using the earlier received wordlist and WPScan I will find out credentials for WordPress.</p>
 					
 					<a href="img/post3/image7.png">
                         <img class="img-responsive" src="img/post3/image7.png" alt="">
                     </a>
 					
-					<blockquote>wpscan --usernames Elliot --passwords /root/Mr_Robot/fsocity.dic --url http://192.168.2.102/wp-login.php</blockquote>
+					<pre><code>wpscan --usernames Elliot --passwords /root/Mr_Robot/fsocity.dic --url http://192.168.2.102/wp-login.php</code></pre>
 					
-					<blockquote>Elliot:ER28–0652</blockquote>
+					<pre><code>Elliot:ER28–0652</code></pre>
 					
 					<p>Now i load php reverse shell and log in</p>
 				
@@ -151,35 +151,35 @@
 					
 					<h2 class="section-heading">Boot2User</h2>
 					
-					<p>In the robot user’s home folder, I find the file with the password encrypted by the MD5 algorithm, to crack it I go to the hashkiller website and get the user password</p>
+					<p>In the robot user’s home folder, I find the file with the password encrypted by the MD5 algorithm, to crack it I go to the hashkiller website and get the user password.</p>
 					
 					<a href="img/post3/image9.png">
                         <img class="img-responsive" src="img/post3/image9.png" alt="">
                     </a>
 					
-					<blockquote>robot:abcdefghijklmnopqrstuvwxyz</blockquote>
+					<pre><code>robot:abcdefghijklmnopqrstuvwxyz</code></pre>
 					
-					<p>Since the ssh port the port is closed I use su to get user rights. And I get 2 flag</p>
+					<p>Since the ssh port the port is closed I use su to get user rights. And I get 2 flag.</p>
 					
 					
 					<a href="img/post3/image10.png">
                         <img class="img-responsive" src="img/post3/image10.png" alt="">
                     </a>
 					
-					<blockquote>python -c 'import pty; pty.spawn("/bin/sh")'</blockquote>
+					<pre><code>python -c 'import pty; pty.spawn("/bin/sh")'</code></pre>
 					
-					<blockquote>su robot</blockquote>
+					<pre><code>su robot</code></pre>
 					
 					<h2 class="section-heading">R00t access</h2>
 					
-					<p>Using nmap, I get root access and get the last third flag</p>
+					<p>Using nmap, I get root access and get the last third flag.</p>
 					
 					<a href="img/post3/image11.png">
                         <img class="img-responsive" src="img/post3/image11.png" alt="">
                     </a>
 					
-					<blockquote>/usr/local/bin/nmap --interactive</blockquote>
-					<blockquote>!sh</blockquote>
+					<pre><code>/usr/local/bin/nmap --interactive</code></pre>
+					<pre><code>!sh</code></pre>
 					
                 </div>
             </div>

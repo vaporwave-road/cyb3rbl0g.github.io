@@ -46,7 +46,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">(´• ω •) 🎄</a>
+                <a class="navbar-brand" href="index.html">(´• ω •)</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,8 +79,8 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>SecTalks: BNE0x02 - Fuku</h1>
-                        <h2 class="subheading">Difficulty : Intermediate</h2>
-                        <span class="meta">Posted by <a href="#">Admin</a> on December 3, 2019</span>
+                        <h2 class="subheading">Difficulty: Intermediate</h2>
+                        <span class="meta">Posted by <a href="about.html">Admin</a> on December 3, 2019</span>
                     </div>
                 </div>
             </div>
@@ -95,14 +95,14 @@
                     <p><a href="https://www.vulnhub.com/entry/sectalks-bne0x02-fuku,140/">CTF link</a></p>
 					<h2 class="section-heading">Scanning and Enum3ration</h2>
 
-                    <p>First thing I do is find the ip address and port scan, after that I find the active Apache server on port 13370</p>
+                    <p>First thing I do is find the ip address and port scan, after that I find the active Apache server on port 13370.</p>
 					
 					<a href="img/post2/image1.png">
                         <img class="img-responsive" src="img/post2/image1.png" alt="">
                     </a>
-
-                    <blockquote>arp-scan -l</blockquote>
-					<blockquote>nmap 192.168.2.102</blockquote>
+					
+                    <pre><code>arp-scan -l</code></pre>
+					<pre><code>nmap 192.168.2.102</code></pre>
 
                     <p>After going to a webpage, I see a web site running on joomla.</p>
 					
@@ -112,7 +112,7 @@
 					
 					<h2 class="section-heading">Getting shell</h2>
 					
-					<p>In source code of page you can find the version of joomla</p>
+					<p>In source code of page you can find the version of joomla.</p>
 					
 					<a href="img/post2/image3.png">
                         <img class="img-responsive" src="img/post2/image3.png" alt="">
@@ -124,13 +124,15 @@
                         <img class="img-responsive" src="img/post2/image4.png" alt="">
                     </a>
 					
-					<blockquote>searchsploit joomla 1.5</blockquote>
+					<pre><code>searchsploit joomla 1.5</code></pre>
+					
 					<p>After changing the administrator password, I successfully login into the site control panel.</p>
+					
 					<a href="img/post2/image5.png">
                         <img class="img-responsive" src="img/post2/image5.png" alt="">
                     </a>
 					
-					<p>After loading php reverse shell i get www-data</p>
+					<p>After loading php reverse shell i get www-data.</p>
 					
 					<a href="img/post2/image6.png">
                         <img class="img-responsive" src="img/post2/image6.png" alt="">
@@ -143,13 +145,14 @@
                     <a href="img/post2/image7.png">
                         <img class="img-responsive" src="img/post2/image7.png" alt="">
                     </a>
-					<blockquote>ps -aux</blockquote>
+					
+					<pre><code>ps -aux</code></pre>
 					
 					<a href="img/post2/image8.png">
                         <img class="img-responsive" src="img/post2/image8.png" alt="">
                     </a>
 					
-					<p>After analyzing the vulnerability on exploitdb, I realized that I needed to create a file in the / tmp directory that should change the administrator password</p>
+					<p>After analyzing the vulnerability on exploitdb, I realized that I needed to create a file in the / tmp directory that should change the administrator password.</p>
 					
 					<a href="img/post2/image9.png">
                         <img class="img-responsive" src="img/post2/image9.png" alt="">

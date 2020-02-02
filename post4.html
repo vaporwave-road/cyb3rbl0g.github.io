@@ -46,7 +46,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">(´• ω •) 🎄</a>
+                <a class="navbar-brand" href="index.html">(´• ω •)</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,8 +79,8 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>sunset: nightfall</h1>
-                        <h2 class="subheading">Difficulty : easy</h2>
-                        <span class="meta">Posted by <a href="#">Admin</a> on December 12, 2019</span>
+                        <h2 class="subheading">Difficulty: easy</h2>
+                        <span class="meta">Posted by <a href="about.html">Admin</a> on December 12, 2019</span>
                     </div>
                 </div>
             </div>
@@ -94,19 +94,19 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <p><a href="https://www.vulnhub.com/entry/sunset-nightfall,355/">CTF link</a></p>
 					
-					<p>Good afternoon today I will walkthrough sunset: nightfall machine</p>
+					<p>Good afternoon today I will walkthrough sunset: nightfall machine.</p>
 					
 					<h2 class="section-heading">Beginning</h2>
 
-                    <p>First, scan the network and find ip</p>
+                    <p>First, scan the network and find ip.</p>
 					
 					<a href="img/post4/image1.png">
                         <img class="img-responsive" src="img/post4/image1.png" alt="">
                     </a>
 
-                    <blockquote>arp-scan -l</blockquote>
+                    <pre><code>arp-scan -l</code></pre>
 
-                    <p>After going to the server web page I find the apache2 empty</p>
+                    <p>After going to the server web page I find the apache2 empty.</p>
 					
 					<a href="img/post4/image2.png">
                         <img class="img-responsive" src="img/post4/image2.png" alt="">
@@ -114,29 +114,30 @@
 					
 					<h2 class="section-heading">Boot2User</h2>
 					
-					<p>With enum4linux I find the user matt and with hydra I get the password for ftp authorization</p>
+					<p>With enum4linux I find the user matt and with hydra I get the password for ftp authorization.</p>
 					
 					<a href="img/post4/image31.png">
                         <img class="img-responsive" src="img/post4/image31.	png" alt="">
                     </a>
+					
 					<p> </p>
-					<p> </p>
+					
 					<a href="img/post4/image32.png">
                         <img class="img-responsive" src="img/post4/image32.png" alt="">
                     </a>
 					
-					<blockquote>enum4linux 192.168.2.100 </blockquote>
-					<blockquote>hydra -l matt -P /root/rockyou.txt ftp://192.168.2.100</blockquote>
-					<blockquote>matt:cheese</blockquote>
+					<pre><code>enum4linux 192.168.2.100</code></pre>
+					<pre><code>hydra -l matt -P /root/rockyou.txt ftp://192.168.2.100</code></pre>
+					<pre><code>matt:cheese</code></pre>
 					
-					<p>When I go to ftp I see the home directory, in order to gain access via ssh I create an authorized_keys file and drop it by ftp to the .ssh directory</p>
+					<p>When I go to ftp I see the home directory, in order to gain access via ssh I create an authorized_keys file and drop it by ftp to the .ssh directory.</p>
 					
 					<a href="img/post4/image4.png">
                         <img class="img-responsive" src="img/post4/image4.png" alt="">
                     </a>
 					
-					<blockquote>cat ~/Nightfall/id_rsa.pub > authorized_keys</blockquote>
-					<blockquote>put authorized_keys</blockquote>
+					<pre><code>cat ~/Nightfall/id_rsa.pub > authorized_keys</code></pre>
+					<pre><code>put authorized_keys</code></pre>
 					
 					<p>Now I connect via ssh and get the user</p>
 					
@@ -146,25 +147,25 @@
 					
 					<h2 class="section-heading">Nightfall</h2>
 					
-					<p>Using the LinEnum script, I find a file that can be used to escalate privileges to the nightfall user whom I found in /home directory</p>
+					<p>Using the LinEnum script, I find a file that can be used to escalate privileges to the nightfall user whom I found in /home directory.</p>
 					
 					<a href="img/post4/image6.png">
                         <img class="img-responsive" src="img/post4/image6.png" alt="">
                     </a>
 					
-					<p>After that I get nighfall user rights and user flag</p>
+					<p>After that I get nighfall user rights and user flag.</p>
 					
 					<a href="img/post4/image7.png">
                         <img class="img-responsive" src="img/post4/image7.png" alt="">
                     </a>
 					
-					<p>To get full nightfall user rights i use authorized_keys again</p>
+					<p>To get full nightfall user rights i use authorized_keys again.</p>
 					
 					<a href="img/post4/image8.png">
                         <img class="img-responsive" src="img/post4/image8.png" alt="">
                     </a>
 					
-					<blockquote>cp /home/matt/.ssh/authorized_keys /home/nightfall/.ssh/authorized_keys</blockquote>
+					<pre><code>cp /home/matt/.ssh/authorized_keys /home/nightfall/.ssh/authorized_keys</code></pre>
 					
 					
 					<p>And connect via ssh</p>
@@ -175,29 +176,30 @@
 					
 					<h2 class="section-heading">Boot2Root</h2>
 					
-					<p>Further I see that the nightfall user can run cat as root</p>
+					<p>Further I see that the nightfall user can run cat as root.</p>
 					
 					<a href="img/post4/image10.png">
                         <img class="img-responsive" src="img/post4/image10.png" alt="">
                     </a>
 					
-					<blockquote>sudo -l</blockquote>
+					<pre><code>sudo -l</code></pre>
 					
-					<p>Using cat, I look at the contents of the /etc/shadow file that can be passed to John for decryption</p>
+					<p>Using cat, I look at the contents of the /etc/shadow file that can be passed to John for decryption.</p>
 				
                     <a href="img/post4/image11.png">
                         <img class="img-responsive" src="img/post4/image11.png" alt="">
                     </a>
 					
-					<blockquote>john shadow</blockquote>
-					<blockquote>root:miguel2</blockquote>
+					<pre><code>john shadow</code></pre>
+					<pre><code>root:miguel2</code></pre>
 					
-					<p>After decrypting the password, I use su and get root</p>
+					<p>After decrypting the password, I use su and get root.</p>
 					
 					<a href="img/post4/image12.png">
                         <img class="img-responsive" src="img/post4/image12.png" alt="">
                     </a>
-					<blockquote>su</blockquote>
+					
+					<pre><code>su</code></pre>
 					
 					
                 </div>

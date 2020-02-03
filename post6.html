@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Walkthrough Moonraker: 1</title>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/icon"> 
+	<link rel="icon" href="img/favicon.ico" type="image/icon">
+    
+	<!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">(´• ω •)</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="post1.html">First Post</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/post6/moonraker.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Moonraker: 1</h1>
+                        <h2 class="subheading">Difficulty: Challenging</h2>
+						<span class="meta">Posted by <a href="about.html">Admin</a> on February 3, 2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p><a href="https://www.vulnhub.com/entry/moonraker-1,264/">CTF link</a></p>
+					
+					<p>You've received intelligence of a new Villain investing heavily into Space and Laser Technologies. Although the Villian is unknown we know the motives are ominous and apocalyptic.</p>
+					
+					<p>Hack into the Moonraker system and discover who's behind these menacing plans once and for all. Find and destroy the Villain before it's too late!</p>
+					
+					<h2 class="section-heading">Scan</h2>
+					
+					<p>Find and scan machine</p>
+					
+					<a href="img/post6/image1.png">
+                        <img class="img-responsive" src="img/post6/image1.png" alt="">
+                    </a>
+					
+					<pre><code>nmap -A 192.168.2.104</code></pre>
+					
+					<p>After scanning, I see an open web port, let's see what is there.</p>
+                  
+					<a href="img/post6/image2.png">
+                        <img class="img-responsive" src="img/post6/image2.png" alt="">
+                    </a>
+					
+					<p>When you go to a web page, a movie trailer for the Moon Rider is included. When the video ends, we get to the menu page.</p>
+
+                    <a href="img/post6/image3.png">
+                        <img class="img-responsive" src="img/post6/image3.png" alt="">
+                    </a>
+					
+					<h2 class="section-heading">Getting shell</h2>
+					
+					<p>After clicking on the bottom button we get to the Moonraker Elite Services page.</p>
+					
+					<a href="img/post6/image4.png">
+                        <img class="img-responsive" src="img/post6/image4.png" alt="">
+                    </a>
+					
+					<p>Below it will be a link to the Services Information Request page.</p>
+					
+					<a href="img/post6/image5.png">
+                        <img class="img-responsive" src="img/post6/image5.png" alt="">
+                    </a>
+					
+					<p> </p>
+					
+					<a href="img/post6/image6.png">
+                        <img class="img-responsive" src="img/post6/image6.png" alt="">
+                    </a>
+					
+					<p>After filling in the html code from the image of the upper form, I click on the button and a post request is sent to the svc-processing.php file.</p>
+
+					<a href="img/post6/image7.png">
+                        <img class="img-responsive" src="img/post6/image7.png" alt="">
+                    </a>
+					
+					<p>And redirect to http://192.168.2.104/svc-inq/svc-processing.php</p>
+					
+					<a href="img/post6/image8.png">
+                        <img class="img-responsive" src="img/post6/image8.png" alt="">
+                    </a>
+					
+					<p>I decided to check the logs and in a minute I found an file svc-processing.php.</p>
+					
+					<pre><code>http://192.168.2.104/svc-inq/salesmoon-gui.php</code></pre>
+					
+					<a href="img/post6/image9.png">
+                        <img class="img-responsive" src="img/post6/image9.png" alt="">
+                    </a>
+					
+					<p>After clicking on the link in this file, I get to the Sales Admin Interface page.</p>
+					
+					<a href="img/post6/image10.png">
+                        <img class="img-responsive" src="img/post6/image10.png" alt="">
+                    </a>
+					
+					<pre><code>http://192.168.2.104/raker-sales/index.html</code></pre>
+					
+					<p>Then I opened CouchDB and I see hints with which I can find out the password from the jaws account from CouchDB on port 5984.</p>
+					
+					<a href="img/post6/image11.png">
+                        <img class="img-responsive" src="img/post6/image11.png" alt="">
+                    </a>
+					
+					<p>Okey jaws girlfriend's name is dolly map dolly + x99 and get authorization data.</p>
+					
+					<pre><code>jaws:dollyx99</code></pre>
+					
+					<p>After authorization, I go to the links tab and see 4 entries with links.</p>
+					
+					<a href="img/post6/image12.png">
+                        <img class="img-responsive" src="img/post6/image12.png" alt="">
+                    </a>
+					
+					<pre><code>http://192.168.2.104/cats/cats-gallery.html</code></pre>
+					<pre><code>http://192.168.2.104/surv-cam/recent.html</code></pre>
+					<pre><code>http://192.168.2.104/HR-Confidential/offer-letters.html</code></pre>
+					<pre><code>http://192.168.2.104/x-files/deep-space-findings.html</code></pre>
+					
+					<p>When I go on the link http://192.168.2.104/HR-Confidential/offer-letters.html, I see the Offer Letter Archive Backup page with .PDF files that contain important data.</p>
+					
+					<a href="img/post6/image13.png">
+                        <img class="img-responsive" src="img/post6/image13.png" alt="">
+                    </a>
+					
+					<p>In moonraker_hugo.pdf I find the password and login to log in to port 3000</p>
+					
+					<a href="img/post6/image14.png">
+                        <img class="img-responsive" src="img/post6/image14.png" alt="">
+                    </a>
+					
+					<pre><code>hugo:TempleLasersL2K</code></pre>
+					
+					<p>Node.js is working on port 3000</p>
+					
+					<a href="img/post6/image15.png">
+                        <img class="img-responsive" src="img/post6/image15.png" alt="">
+                    </a>
+					
+					<p>After analyzing the page with burp suite, I understand that I need to use exploit deserialization node.js</p>
+					
+					<pre><code>https://www.exploit-db.com/docs/english/41289-exploiting-node.js-deserialization-bug-for-remote-code-execution.pdf</code></pre>
+					
+					<p>Using nodejsshell.py script I generate a payload for remote execution of exploit code.</p>
+					
+					<a href="img/post6/image16.png">
+                        <img class="img-responsive" src="img/post6/image16.png" alt="">
+                    </a>
+					
+					<pre><code>https://github.com/ajinabraham/Node.Js-Security-Course/blob/master/nodejsshell.py</code></pre>
+					
+					<p>With burp decoder i encrypt it in base64 format.</p>
+					
+					<a href="img/post6/image17.png">
+                        <img class="img-responsive" src="img/post6/image17.png" alt="">
+                    </a>
+					
+					<p>Paste in the cookie form.</p>
+					
+					<a href="img/post6/image18.png">
+                        <img class="img-responsive" src="img/post6/image18.png" alt="">
+                    </a>
+					
+					<p>And I got a shell.</p>
+					
+					<a href="img/post6/image19.png">
+                        <img class="img-responsive" src="img/post6/image19.png" alt="">
+                    </a>
+					
+					<h2 class="section-heading">Way to the Hugo</h2>
+					
+					<p>At first I checked the home folder but didn’t find anything interesting there, but then when I checked the CouchDB directory I found out the details for the hugo account.</p>
+					
+					<a href="img/post6/image20.png">
+                        <img class="img-responsive" src="img/post6/image20.png" alt="">
+                    </a>
+					
+					<pre><code>cat /opt/couchdb/etc/local.ini</code></pre>
+					<pre><code>hugo:321Blast0ff!!</code></pre>
+					
+					
+					<p>Now connect via ssh and we hugo.</p>
+					
+					<a href="img/post6/image21.png">
+                        <img class="img-responsive" src="img/post6/image21.png" alt="">
+                    </a>
+					
+					<h2 class="section-heading">Destroy Moonraker system</h2>
+					
+					<p>In the mail folder I found a letter addressed to hugo which said about the new administrator passwords and also there hash from the old password. It's time to turn to john.</p>
+					
+					<a href="img/post6/image22.png">
+                        <img class="img-responsive" src="img/post6/image22.png" alt="">
+                    </a>
+					
+					<pre><code>less /var/mail/hugo</code></pre>
+					
+					<p>And we get the root password.</p>
+					
+					<a href="img/post6/image23.png">
+                        <img class="img-responsive" src="img/post6/image23.png" alt="">
+                    </a>
+					
+					<pre><code>cyber</code></pre>
+					
+					<p>We compare with the data from the letter and get a new password for root.</p>
+					
+					<a href="img/post6/image24.png">
+                        <img class="img-responsive" src="img/post6/image24.png" alt="">
+                    </a>
+					
+					<pre><code>root:cyberVR00M</code></pre>
+					
+					<p>Now proceed to destroy the moonraker system.</p>
+					
+					<a href="img/post6/image25.png">
+                        <img class="img-responsive" src="img/post6/image25.png" alt="">
+                    </a>
+					
+					<p>Great job agent.</p>
+					
+					<a href="img/post6/image26.png">
+                        <img class="img-responsive" src="img/post6/image26.png" alt="">
+                    </a>
+					
+					<pre><code>http://192.168.2.103/semaj-dnob/flag-finale-007-moon/</code></pre>
+					
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; cyb3rbl0g.github.io 2019</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
